@@ -23,18 +23,7 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: 'Plotter Y vs X',
-    },
-  },
-};
+
 
 const App = () => {
   const [xdata, setxData] = useState([]);
@@ -59,7 +48,18 @@ const App = () => {
   const yValues = ydata.sort((a: any,b: any)=> a.id - b.id).slice(0, 50).map((entry: any) => entry.RandomNumber);
   const xLabels = xdata.sort((a: any,b: any)=> a.id - b.id).slice(0, 50).map((entry: any) => entry.Label)
   const yLabels = ydata.sort((a: any,b: any)=> a.id - b.id).slice(0, 50).map((entry: any) => entry.Label)
-
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: 'Plotter Y vs X',
+      },
+    },
+  };
   const chartData = {
     labels: xLabels,
     datasets: [
